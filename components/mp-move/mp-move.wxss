@@ -1,0 +1,21 @@
+/* components/mp-move/mp-move.wxss */
+.mp-move-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .move-area{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+
+} */
+.move{
+  box-shadow: 1px 1px 5px 5px gray;
+  position: absolute;
+  top:0
+}

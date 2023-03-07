@@ -1,0 +1,67 @@
+<!--components/mp-move/mp-move.wxml-->
+
+<view class="mp-move-container">
+  <block wx:for="{{10}}">
+    <view class="item" style="margin-bottom:{{30}}rpx;">
+      <item item="{{index}}">
+        <view  catchtouchmove="{{move.touchmove}}" catchtouchstart="{{move.touchstart}}" catchtouchend="{{move.touchend}}">
+            <move-slot></move-slot>
+        </view>
+      </item>
+    </view>
+  </block>
+</view>
+
+<view class="move">
+  <view wx:if="{{showMove}}">
+    <item item="{{index}}"></item>
+  </view>
+</view>
+
+<wxs module="move">
+  var offsetX = 0
+  var offsetY = 0
+  var instance = null
+  var startY = 0
+  var itemHeight = 0
+  var startIndex, endIndex
+  module.exports = {
+    touchstart: function (event, ownerInstance) {
+      // console.log('log event', JSON.stringify(event))
+      offsetX = event.target.offsetLeft
+      offsetY = event.target.offsetTop
+      startY = event.changedTouches[0].pageY
+      ownerInstance.callMethod("toggleShowMove")
+      if (!instance) {
+        instance = ownerInstance.selectComponent('.move')
+        itemHeight = ownerInstance.selectComponent('.item').getBoundingClientRect().height
+      }
+      startIndex = Math.floor(startY / itemHeight)
+      instance.setStyle({
+        top: offsetY + "px",
+        left: offsetX + "px"
+      })
+    },
+    touchmove: function (event, ownerInstance) {
+      // console.log('log event', JSON.stringify(event))
+      if (!instance) {
+        instance = ownerInstance.selectComponent('.move')
+      }
+      var deltaY = event.changedTouches[0].pageY - startY
+      instance.setStyle({
+        top: offsetY + deltaY + "px",
+        left: offsetX + "px"
+      })
+    },
+    touchend: function (event, ownerInstance) {
+      ownerInstance.callMethod("toggleShowMove")
+      console.log('log event', JSON.stringify(event))
+      console.log(itemHeight)
+      var deltaY = event.changedTouches[0].pageY - startY
+      endIndex = Math.floor((offsetY + deltaY) / itemHeight)
+      console.log(startIndex, endIndex)
+
+    }
+
+  }
+</wxs>

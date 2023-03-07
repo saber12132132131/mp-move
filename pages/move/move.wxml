@@ -1,0 +1,2 @@
+<!--pages/move/move.wxml-->
+<mp-move generic:item="item"  generic:move-slot="move-slot"></mp-move>

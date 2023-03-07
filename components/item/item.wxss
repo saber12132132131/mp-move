@@ -1,0 +1,7 @@
+/* components/item/item.wxss */
+.item{
+  width:690rpx;
+  height: 150rpx;
+  background-color: beige;
+
+}

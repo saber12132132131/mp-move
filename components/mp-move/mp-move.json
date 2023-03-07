@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    
+  },
+  "componentGenerics": {
+    "item":true,
+    "move-slot":true
+  }
+  
+}
