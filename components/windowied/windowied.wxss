@@ -1,0 +1,15 @@
+/* components/windowied/windowied.wxss */
+.top{
+  position: fixed;
+  width: 100vw;
+  height: 30rpx;
+  background-color: rgb(225, 245, 220);
+  top: -100vh;
+}
+.bottom{
+  position: fixed;
+  width: 100vw;
+  height: 30rpx;
+  background-color: rgb(225, 245, 220);
+  bottom: -100vh;
+}

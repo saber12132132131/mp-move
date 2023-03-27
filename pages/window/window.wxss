@@ -1,0 +1,11 @@
+/* pages/window/window.wxss */
+page{
+  padding-bottom: 1000rpx;
+}
+.item{
+  height: 360rpx;
+  width: 690rpx;
+  background-color: beige;
+  margin-bottom: 30rpx;
+  margin: 300rpx auto;
+}

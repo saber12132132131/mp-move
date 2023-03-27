@@ -1,0 +1,8 @@
+<!--components/windowied/windowied.wxml-->
+<block wx:if="{{show}}">
+  <view class="top"></view>
+  <view id="id-{{key}}" class="window">
+    <slot></slot>
+  </view>
+  <view class="bottom"></view>
+</block>

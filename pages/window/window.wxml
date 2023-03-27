@@ -1,0 +1,7 @@
+<!--pages/window/window.wxml-->
+<block wx:for="{{list}}" wx:key="*this">
+
+  <windowed wx:if="{{index>topIndex&&index<bottomIndex}}" key="{{index}}" index="{{index}}" bindtopenter="handTopEnter" bindtopouter="handTopOuter" bindbottomenter="handBottomEnter" bindbottomouter="handBottomOuter" startIndex="{{topIndex}}" endIndex="{{bottomIndex}}">
+    <view class="item">{{item}}</view>
+  </windowed>
+</block>
